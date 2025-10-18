@@ -1,8 +1,8 @@
 ﻿class Person
 {
-    public string FirstName { get;set };
-    public string LastName { get;set };
-    public DateTime BirthDate { get;set };
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public DateTime BirthDate { get; set; }
 
     public Person(string firstName, string lastName, DateTime birthDate)
     {
@@ -14,10 +14,10 @@
 
 class CurrentAccount
 {
-    private string Number { get; set };
-    private double Balance { get; private set };
-    private double CreditLine { get; set };
-    private Person Owner { get; set };
+    private string Number { get; set; }
+    private double Balance { get;  set; }
+    private double CreditLine { get; set; }
+    private Person Owner { get; set; }
 
     public CurrentAccount(string number,Person owner, double creditLine = 0 )
     {
@@ -40,7 +40,7 @@ class CurrentAccount
 class Bank
 {
     private Dictionary<string, CurrentAccount> _accounts = new Dictionary<string, CurrentAccount>();
-    private string name { get; set };
+    private string Name { get; set; }
 
     public Bank(string name)
     {
@@ -59,8 +59,9 @@ class Bank
 
     public double ReturnSoldeCurrentAccount()
     {
-        
+        return 0; 
     }
+    
     public void ShowAllCurrentAccounts()
     {
         
@@ -75,6 +76,8 @@ class Program
         var bank = new Bank("Ma Banque");
         var person = new Person("Adrien", "Mertens", new DateTime(1990, 1, 1));
         var account = new CurrentAccount("BE123456789", person, 1000);
+        
+        
     }
     
-}
+};
