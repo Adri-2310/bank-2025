@@ -6,9 +6,9 @@
 
     public Person(string firstName, string lastName, DateTime birthDate)
     {
-        firstName = firstName;
-        lastName = lastName;
-        birthDate = birthDate;
+        FirstName = firstName;
+        LastName = lastName;
+        BirthDate = birthDate;
     }
 }
 
@@ -29,7 +29,20 @@ class CurrentAccount
 
     public void WithDraw(double amount)
     {
+        if (amount <= 0)
+        {
+            Console.WriteLine("Erreur : Le montant doit être positif");
+            return;
+        }
+
+        if (Balance - amount < -CreditLine)
+        {
+            Console.WriteLine("Erreur : Le solde est insuffisant");
+            return;
+        }
         
+        Balance -= amount;
+        Console.WriteLine($"Retrait de {amount} effectué avec succès.");
     }
     public void Deposit(double amount)
     {
@@ -59,7 +72,7 @@ class Bank
 
     public double ReturnSoldeCurrentAccount()
     {
-        return 0; 
+       return 0; 
     }
     
     public void ShowAllCurrentAccounts()
@@ -77,7 +90,8 @@ class Program
         var person = new Person("Adrien", "Mertens", new DateTime(1990, 1, 1));
         var account = new CurrentAccount("BE123456789", person, 1000);
         
-        
+        bank.AddAccount(account);
+        account.WithDraw(100);
     }
     
-};
+}
