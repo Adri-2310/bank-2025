@@ -14,7 +14,7 @@
 
 class CurrentAccount
 {
-    private string Number { get; set; }
+    internal string Number { get; set; }
     private double Balance { get;  set; }
     private double CreditLine { get; set; }
     private Person Owner { get; set; }
@@ -69,7 +69,14 @@ class Bank
     
     public void AddAccount(CurrentAccount account)
     {
+        if (_accounts.ContainsKey(account.Number))
+        {
+            Console.WriteLine("Erreur : Un compte avec ce numéro existe déjà.");
+            return;
+        }
         
+        _accounts.Add(account.Number, account);
+        Console.WriteLine($"Compte {account.Number} ajouté avec succès.");
     }
 
     public void DeleteAccount(string number)
@@ -77,7 +84,7 @@ class Bank
         
     }
 
-    public double ReturnSoldeCurrentAccount()
+    public double ReturnSoldeCurrentAccount(string number)
     {
        return 0; 
     }
