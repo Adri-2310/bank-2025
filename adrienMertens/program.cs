@@ -15,7 +15,7 @@
 class CurrentAccount
 {
     internal string Number { get; set; }
-    private double Balance { get;  set; }
+    public double Balance { get; private set; }
     private double CreditLine { get; set; }
     private Person Owner { get; set; }
 
@@ -92,7 +92,13 @@ class Bank
 
     public double ReturnSoldeCurrentAccount(string number)
     {
-       return 0; 
+        if (!_accounts.TryGetValue(number, out var account))
+        {
+            Console.WriteLine("Erreur : Aucun compte trouvé avec ce numéro.");
+            return 0;
+        }
+
+        return account.Balance;
     }
     
     public void ShowAllCurrentAccounts()
@@ -113,8 +119,7 @@ class Program
         bank.AddAccount(account);
         account.Deposit(2000);
         account.WithDraw(100);
-        
-        
+        Console.WriteLine($"le solde du compte {account.Number} est de {bank.ReturnSoldeCurrentAccount(account.Number)}");
         
         bank.DeleteAccount(account.Number);
     }
