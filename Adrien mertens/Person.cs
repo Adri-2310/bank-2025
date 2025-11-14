@@ -5,8 +5,19 @@
 /// </summary>
 public class Person
 {
+    /// <summary>
+    /// Prénom de la personne.
+    /// </summary>
     public string FirstName { get; set; }
+
+    /// <summary>
+    /// Nom de famille de la personne.
+    /// </summary>
     public string LastName { get; set; }
+
+    /// <summary>
+    /// Date de naissance de la personne.
+    /// </summary>
     public DateTime BirthDate { get; set; }
 
     /// <summary>

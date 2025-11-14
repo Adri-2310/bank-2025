@@ -9,13 +9,13 @@ public class Bank
     /// Dictionnaire des comptes bancaires gérés par la banque,
     /// indexés par leur numéro de compte.
     /// </summary>
-    private Dictionary<string, Account> _accounts = new Dictionary<string, Account>();
+    private Dictionary<string, IBankAccount> _accounts = new Dictionary<string, IBankAccount>();
 
     /// <summary>
     /// Ajoute un compte à la banque si le numéro n'est pas déjà utilisé.
     /// </summary>
     /// <param name="account">Compte à ajouter.</param>
-    public void AddAccount(Account account)
+    public void AddAccount(IBankAccount account)
     {
         if (_accounts.ContainsKey(account.Number))
         {

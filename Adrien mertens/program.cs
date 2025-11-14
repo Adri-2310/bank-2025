@@ -3,7 +3,7 @@
 /// <summary>
 /// Point d'entrée de l'application de démonstration bancaire.
 /// </summary>
-class Program
+ class Program
 {
     /// <summary>
     /// Méthode principale qui illustre la création d'une banque,

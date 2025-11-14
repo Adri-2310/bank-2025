@@ -3,7 +3,7 @@
 /// <summary>
 /// Classe abstraite représentant un compte bancaire générique.
 /// </summary>
-public abstract class Account
+public abstract class Account : IBankAccount
 {
     /// <summary>
     /// Numéro unique du compte.
