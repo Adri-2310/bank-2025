@@ -9,7 +9,7 @@ public class SavingAccount : Account
     /// <summary>
     /// Date du dernier retrait effectué sur le compte d'épargne.
     /// </summary>
-    private DateTime DateLastWithdraw { get; set; }
+    public DateTime DateLastWithdraw { get; private set; }
 
     /// <summary>
     /// Constructeur d'un compte d'épargne.

@@ -8,17 +8,17 @@ public class Person
     /// <summary>
     /// Prénom de la personne.
     /// </summary>
-    public string FirstName { get; set; }
+    public string FirstName { get; private set; }
 
     /// <summary>
     /// Nom de famille de la personne.
     /// </summary>
-    public string LastName { get; set; }
+    public string LastName { get; private set; }
 
     /// <summary>
     /// Date de naissance de la personne.
     /// </summary>
-    public DateTime BirthDate { get; set; }
+    public DateTime BirthDate { get; private set; }
 
     /// <summary>
     /// Constructeur permettant d'initialiser une personne avec ses informations principales.

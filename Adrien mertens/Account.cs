@@ -8,7 +8,7 @@ public abstract class Account : IBankAccount
     /// <summary>
     /// Numéro unique du compte.
     /// </summary>
-    public string Number { get; set; }
+    public string Number { get; private set; }
 
     /// <summary>
     /// Solde actuel du compte.
@@ -18,7 +18,7 @@ public abstract class Account : IBankAccount
     /// <summary>
     /// Propriétaire du compte.
     /// </summary>
-    public Person Owner { get; set; }
+    public Person Owner { get; private set; }
 
     /// <summary>
     /// Constructeur de base d'un compte bancaire.
@@ -29,6 +29,11 @@ public abstract class Account : IBankAccount
     {
         Number = number;
         Owner = owner;
+    }
+
+    public Account(string number, Person owner , double balance ) : this(number, owner)
+    {
+        Balance = balance;
     }
     
     /// <summary>
